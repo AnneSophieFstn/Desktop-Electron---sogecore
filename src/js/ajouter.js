@@ -10,7 +10,7 @@ const Ajouternomemploye = document.querySelector("#nomEmploye");
 const Ajoutertypeintervention = document.querySelector("#typeIntervention");
 const Ajouterstatutticket = document.querySelector("#statutTicket");
 
-const Ajouterdate = moment().format();
+const Ajouterdate = moment().format("YYYY-MM-DD HH:mm:ss");
 
 Ajoutform.addEventListener("submit", async (e) => {
   try {
