@@ -33,7 +33,7 @@ function renderProducts(tickets) {
         <td><button class="editBtn btn btn-secondary btn-sm" data-toggle="modal" data-target="#editModal" onClick="editBtnModal('${
           ticket.id
         }')"">Modifier</button></td>
-        <td><button class="deleteBtn btn btn-danger btn-sm" onClick="deleteProduct('${
+        <td><button class="deleteBtn btn btn-danger btn-sm" onClick="deleteTicket('${
           ticket.id
         }')">Supprimer</button></td>
       </tr>

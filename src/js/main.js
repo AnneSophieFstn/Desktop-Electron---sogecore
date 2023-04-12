@@ -26,6 +26,11 @@ const setATicket = async (id, ticket) => {
   const result = await conn.query("UPDATE tickets SET ? WHERE id = ? ", [ticket, id]);
 };
 
+const deleteATicket = async (id) => {
+  const conn = await getConnection();
+  const result = await conn.query("DELETE FROM tickets WHERE id = ? ",id);
+};
+
 function createWindow() {
   window = new BrowserWindow({
     webPreferences: {
@@ -42,5 +47,6 @@ module.exports = {
   getAllTickets,
   ajout,
   getATicket,
-  setATicket
+  setATicket,
+  deleteATicket
 };
