@@ -13,6 +13,7 @@ const getAllTickets = async () => {
   renderProducts(listeTickets);
 };
 
+
 async function init() {
   getAllTickets();
 }

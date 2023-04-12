@@ -15,6 +15,17 @@ const ajout = async (ticket) => {
   return await result.json;
 };
 
+const getATicket = async (id) => {
+  const conn = await getConnection();
+  const result = await conn.query("SELECT * FROM tickets WHERE id = ? ", id);
+  return result[0];
+};
+
+const setATicket = async (id, ticket) => {
+  const conn = await getConnection();
+  const result = await conn.query("UPDATE FROM tickets SET ? WHERE id = ? ", [ticket, id]);
+};
+
 function createWindow() {
   window = new BrowserWindow({
     webPreferences: {
@@ -30,4 +41,6 @@ module.exports = {
   createWindow,
   getAllTickets,
   ajout,
+  getATicket,
+  setATicket
 };
