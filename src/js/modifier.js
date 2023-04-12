@@ -1,7 +1,7 @@
  // CONTROLLER EDIT 
  const openModal = document.querySelector(".modal");
  const btnHide = document.querySelectorAll(".closeBtn");
- const modifierform = document.querySelector(".btnUpdate");
+ const modifierform = document.querySelector("#AjouterForm");
 
  let modifierID;
 
@@ -51,6 +51,8 @@ modifierform.addEventListener("submit", async(e) =>{
         console.log(modifTicket);
         //demande de promesse vers le main
         const Modifierticket = await main.setATicket(modifierID, modifTicket);
+        document.location.href="index.html";
+
         
 
     } catch(error) {

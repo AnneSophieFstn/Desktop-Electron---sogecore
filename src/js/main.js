@@ -23,7 +23,7 @@ const getATicket = async (id) => {
 
 const setATicket = async (id, ticket) => {
   const conn = await getConnection();
-  const result = await conn.query("UPDATE FROM tickets SET ? WHERE id = ? ", [ticket, id]);
+  const result = await conn.query("UPDATE tickets SET ? WHERE id = ? ", [ticket, id]);
 };
 
 function createWindow() {
