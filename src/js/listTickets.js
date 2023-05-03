@@ -5,8 +5,6 @@ const moment = require("moment"); // require
 moment.locale("fr");
 
 const dataBodyTable = document.querySelector("#data-piece");
-/* const openModal = document.querySelector(".modal");
- */
 
 var dataTickets;
 
@@ -15,7 +13,6 @@ const getAllTickets = async () => {
 
   dataTickets = listeTickets
 
-  //renderProducts(listeTickets);
 };
 
 (async () => {

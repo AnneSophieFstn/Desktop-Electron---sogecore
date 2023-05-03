@@ -9,6 +9,8 @@
     await showModal();    
     
     const ticket = await main.getATicket(id)
+
+    console.log("ticket: ", ticket)
     
     typeIntervention.value = ticket.type;
     nomEmploye.value = ticket.attribut_employe;

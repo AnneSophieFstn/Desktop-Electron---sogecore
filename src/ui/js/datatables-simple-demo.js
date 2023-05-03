@@ -16,15 +16,21 @@ const getAllTicketsDB = async () => {
             "Créer le",
             "Status",
             "Terminée le",
+            "Modifier",
+            "Supprimer"
         ],
-        data: dataTicket.map(item => [
-            item.id,
-            item.type,
-            item.attribut_employe,
-            moment(item.date_heure_debut_t).format("LL"),
-            item.status,
-            item.date_heure_fin_t
-        ])
+        data: dataTicket.map(item => {
+            return [
+                item.id,
+                item.type,
+                item.attribut_employe,
+                moment(item.date_heure_debut_t).format("LL"),
+                item.status,
+                item.date_heure_fin_t,
+                `<button class="editBtn btn btn-secondary btn-sm" data-toggle="modal" data-target="#editModal" onClick="editBtnModal('${item.id}')">Modifier</button>`,
+                `<button class="deleteBtn btn btn-danger btn-sm" onClick="deleteTicket('${item.id}')">Supprimer</button>`
+            ]
+    })
     }
 
     const myTable = document.getElementById("datatablesSimple");
