@@ -1,42 +1,41 @@
-const DataTable = require('simple-datatables');
+const mainD = require("../js/main")
 
-let myData = {
-	"headings": [
-		"Name",
-		"Company",
-		"Ext.",
-		"Start Date",
-		"Email",
-		"Phone No."
-	],
-	"data": [
-		[
-			"Hedwig F. Nguyen",
-			"Arcu Vel Foundation",
-			"9875",
-			"03/27/2017",
-			"nunc.ullamcorper@metusvitae.com",
-			"070 8206 9605"
-		],
-		[
-			"Genevieve U. Watts",
-			"Eget Incorporated",
-			"9557",
-			"07/18/2017",
-			"Nullam.vitae@egestas.edu",
-			"0800 106980"
-		],
-	],
-};
+var dataTicket;
+
+const getAllTicketsDB = async () => {
+    
+    let listeTickets = await mainD.getAllTickets()
+
+    dataTicket = listeTickets
+
+    let myDataMap = {
+        headings: [
+            "Id",
+            "Type",
+            "Employé",
+            "Créer le",
+            "Status",
+            "Terminée le",
+        ],
+        data: dataTicket.map(item => [
+            item.id,
+            item.type,
+            item.attribut_employe,
+            moment(item.date_heure_debut_t).format("LL"),
+            item.status,
+            item.date_heure_fin_t
+        ])
+    }
+
+    const myTable = document.getElementById("datatablesSimple");
+    new simpleDatatables.DataTable(myTable, { data: myDataMap })
+}
+
 
 window.addEventListener('DOMContentLoaded', event => {
     // Simple-DataTables
     // https://github.com/fiduswriter/Simple-DataTables/wiki
 
-    const datatablesSimple = document.getElementById('datatablesSimple');
-    if (datatablesSimple) {
-        new simpleDatatables.DataTable(datatablesSimple, {data: myData}).on('datatable.search', function(query, matched) {
-            console.log(query)
-        });
-    }
+    getAllTicketsDB()
+
 });

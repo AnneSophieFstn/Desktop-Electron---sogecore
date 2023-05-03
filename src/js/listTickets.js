@@ -8,11 +8,19 @@ const dataBodyTable = document.querySelector("#data-piece");
 /* const openModal = document.querySelector(".modal");
  */
 
-const getAllTickets = async () => {
-  listeTickets = await main.getAllTickets();
+var dataTickets;
 
-  renderProducts(listeTickets);
+const getAllTickets = async () => {
+  let listeTickets = await main.getAllTickets();
+
+  dataTickets = listeTickets
+
+  //renderProducts(listeTickets);
 };
+
+(async () => {
+  await getAllTickets();
+})();
 
 
 async function init() {
@@ -21,10 +29,12 @@ async function init() {
 
 init();
 
-
-function renderProducts(tickets) {
+/* function renderProducts(tickets) {
+  let upListTickets = []
   tickets.forEach((ticket) => {
-    dataBodyTable.innerHTML += `
+
+    upListTickets = ticket */
+    /* dataBodyTable.innerHTML += `
       <tr>
         <td>${ticket.id}</td>
         <td>${ticket.type}</td>
@@ -39,9 +49,12 @@ function renderProducts(tickets) {
           ticket.id
         }')">Supprimer</button></td>
       </tr>
-    `;
-  });
-}
+    `; */
+  /* });
+  console.log("ticket", upListTickets)
+  return upListTickets
+
+} */
 
 const deleteProduct = async (id) => {
   /* const productByIdD = await main.getProductById(id);
@@ -54,3 +67,6 @@ const deleteProduct = async (id) => {
   }
   return;
 };
+
+
+module.exports = {dataTickets}
