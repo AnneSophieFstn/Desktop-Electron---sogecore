@@ -31,6 +31,17 @@ const deleteATicket = async (id) => {
   const result = await conn.query("DELETE FROM tickets WHERE id = ? ",id);
 };
 
+
+
+
+//pour recuperer les employés
+const getAllEmployes = async () => {
+  const conn = await getConnection();
+  const result = await conn.query("SELECT * FROM user WHERE id_role =1");
+  return result;
+
+};
+
 function createWindow() {
   window = new BrowserWindow({
     webPreferences: {
@@ -48,5 +59,6 @@ module.exports = {
   ajout,
   getATicket,
   setATicket,
-  deleteATicket
+  deleteATicket,
+  getAllEmployes
 };
