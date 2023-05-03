@@ -16,7 +16,7 @@ const getAllTickets = async () => {
 
 async function init() {
   getAllTickets();
-}
+};
 
 init();
 
