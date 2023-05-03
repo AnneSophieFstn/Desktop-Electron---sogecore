@@ -10,6 +10,7 @@ const dataBodyTable = document.querySelector("#data-piece");
 
 const getAllTickets = async () => {
   listeTickets = await main.getAllTickets();
+
   renderProducts(listeTickets);
 };
 
@@ -19,6 +20,7 @@ async function init() {
 };
 
 init();
+
 
 function renderProducts(tickets) {
   tickets.forEach((ticket) => {

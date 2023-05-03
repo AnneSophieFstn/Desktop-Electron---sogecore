@@ -32,8 +32,6 @@ const deleteATicket = async (id) => {
 };
 
 
-
-
 //pour recuperer les employés
 const getAllEmployes = async () => {
   const conn = await getConnection();
