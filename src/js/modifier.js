@@ -53,7 +53,7 @@ modifierform.addEventListener("submit", async(e) =>{
         console.log(modifTicket);
         //demande de promesse vers le main
         const Modifierticket = await main.setATicket(modifierID, modifTicket);
-        document.location.href="index.html";
+        document.location.href="dashboard.html";
 
         
 

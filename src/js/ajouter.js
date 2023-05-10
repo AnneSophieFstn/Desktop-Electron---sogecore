@@ -28,7 +28,7 @@ Ajoutform.addEventListener("submit", async (e) => {
     //demande de promesse vers le main
     const Ajouterticket = await main.ajout(ticket);
     console.log(Ajouterticket);
-    document.location.href = "index.html";
+    document.location.href = "dashboard.html";
   } catch (error) {
     console.log(error);
   }

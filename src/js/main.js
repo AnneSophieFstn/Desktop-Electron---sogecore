@@ -35,10 +35,16 @@ const deleteATicket = async (id) => {
 //pour recuperer les employés
 const getAllEmployes = async () => {
   const conn = await getConnection();
-  const result = await conn.query("SELECT * FROM user WHERE id_role =1");
+  const result = await conn.query("SELECT * FROM user WHERE id_role =2");
   return result;
 
 };
+
+const login = async (email, motdepasse) => {
+  const conn = await getConnection();
+  const result = await conn.query("SELECT id, email, motdepasse, id_role FROM user WHERE id_role = 1 AND email = ? AND motdepasse = ?", [email, motdepasse]);
+  return result;
+}
 
 function createWindow() {
   window = new BrowserWindow({
@@ -58,5 +64,6 @@ module.exports = {
   getATicket,
   setATicket,
   deleteATicket,
-  getAllEmployes
+  getAllEmployes,
+  login
 };
